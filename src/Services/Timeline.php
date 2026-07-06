@@ -33,8 +33,9 @@ final class Timeline
 
     /**
      * @param array<int,array{label:string,url:string,icon?:string}> $actions
+     * @param array<int,string> $tags
      */
-    public function post(string $title, string $body, string $type = 'default', ?string $icon = null, array $actions = []): bool
+    public function post(string $title, string $body, string $type = 'default', ?string $icon = null, array $actions = [], array $tags = []): bool
     {
         if (! $this->config->isConfigured()) {
             return false;
@@ -50,6 +51,7 @@ final class Timeline
             'type' => $type,
             'icon' => $icon ?? self::ICONS[$type],
             'actions' => array_values($actions),
+            'tags' => array_values($tags),
         ]);
 
         return $response !== null;
