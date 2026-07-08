@@ -59,6 +59,8 @@ final class Client
             'Authorization' => 'Bearer ' . $this->config->apiKey(),
             'Accept' => 'application/json',
             'Content-Type' => 'application/json',
+            'X-Statview-Client' => 'wordpress',
+            'User-Agent' => 'Statview-Satellite-WordPress',
         ];
     }
 
